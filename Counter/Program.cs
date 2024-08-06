@@ -37,7 +37,6 @@ namespace Counter
             foreach (Counter c in counters)
             {
                 Console.WriteLine("{0} is {1}", c.Name, c.Ticks);
-                
             }
         }
     }
