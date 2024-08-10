@@ -10,33 +10,12 @@ namespace Counter
     {
         static void Main(string[] args)
         {
+            Clock myClock = new Clock("myclock");
 
-            Counter[] myCounters = new Counter[3];
-
-            myCounters[0] = new Counter("Counter 1");
-            myCounters[1] = new Counter("Counter 2");
-            myCounters[2] = myCounters[0];
-
-            for (int i = 0; i < 4; i++)
-                myCounters[0].Increment();
-
-            for (int i = 0; i < 9; i++)
-                myCounters[1].Increment();
-
-            PrintCounters(myCounters);
-
-            myCounters[2].Reset();
-
-            PrintCounters(myCounters);
-
-
-        }
-
-        public static void PrintCounters(Counter[] counters)
-        {
-            foreach (Counter c in counters)
+            for (int i = 0; i < 60; i++)
             {
-                Console.WriteLine("{0} is {1}", c.Name, c.Ticks);
+                myClock.Tick();
+                myClock.GetCurrentTime();
             }
         }
     }

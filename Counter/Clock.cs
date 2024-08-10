@@ -25,17 +25,19 @@ namespace Counter
 
             if (_seconds.Ticks == 60)
             {
+                _seconds.Reset();
                 _minutes.Increment();
             }
 
             if (_minutes.Ticks == 60)
             {
+                _minutes.Reset();
                 _hours.Increment();
             }
 
-            if (_hours.Ticks == 25)
+            if (_hours.Ticks == 24)
             {
-                _hours.Reset();
+                this.Reset();
             }
         }
 
@@ -48,7 +50,7 @@ namespace Counter
 
         public void GetCurrentTime()
         {
-            Console.WriteLine("{0}:{1}:{2}", 
+            Console.WriteLine("{0:D2}:{1:D2}:{2:D2}", 
                 _hours.Ticks, 
                 _minutes.Ticks, 
                 _seconds.Ticks
